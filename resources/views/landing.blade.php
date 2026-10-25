@@ -51,37 +51,7 @@
     </section>
 
     {{-- ===== Kenapa perlu ===== --}}
-    <section class="l-section" id="kenapa">
-        <div class="l-wrap">
-            <span class="l-eyebrow">Kenapa perlu Ruci BSC</span>
-            <h2>Strategi yang baik sering berhenti di dokumen rencana.</h2>
-            <p class="l-lead">Kaplan &amp; Norton, perancang Balanced Scorecard, menemukan empat hambatan klasik pelaksanaan strategi. Ruci BSC dirancang untuk menjawab keempatnya.</p>
-            <div class="l-grid l-grid-4">
-                @foreach ([
-                    ['95%', 'karyawan tidak memahami strategi perusahaannya', 'Hambatan visi', 'Peta Strategi satu halaman yang bisa dibaca semua orang, dari Komisaris sampai kepala unit.'],
-                    ['75%', 'manajer tidak memiliki insentif yang terkait dengan strategi', 'Hambatan manusia', 'Setiap KPI punya pemilik, target bulanan, dan skor yang terlihat jelas.'],
-                    ['60%', 'organisasi tidak mengaitkan anggaran dengan strategi', 'Hambatan sumber daya', 'Setiap inisiatif terhubung ke sasaran, lengkap dengan anggaran dan serapannya.'],
-                    ['85%', 'tim eksekutif membahas strategi kurang dari 1 jam per bulan', 'Hambatan manajemen', 'Pusat Kendali dan ritme rapat bulanan membuat strategi selalu masuk agenda.'],
-                ] as [$num, $fact, $label, $answer])
-                    <div class="l-card l-barrier">
-                        <div class="l-num">{{ $num }}</div>
-                        <p>{{ $fact }}</p>
-                        <span class="l-chip">{{ $label }}</span>
-                        <p class="l-answer"><b>Jawaban Ruci BSC:</b> {{ $answer }}</p>
-                    </div>
-                @endforeach
-            </div>
-            <div class="l-grid l-grid-3 l-gap-top">
-                @foreach ([
-                    ['Satu sumber kebenaran', 'Angka realisasi diinput unit, diverifikasi Keuangan, disetujui Direksi. Tidak ada lagi rekap Excel yang berbeda-beda versi.'],
-                    ['Peringatan dini', 'KPI kritis yang merah, data yang terlambat, dan temuan yang belum ditindaklanjuti muncul di Pusat Kendali sebelum rapat.'],
-                    ['Siap tata kelola', 'Jejak audit setiap perubahan, hak akses per peran, dan laporan untuk Komisaris yang bisa diekspor kapan saja.'],
-                ] as [$t, $d])
-                    <div class="l-card"><h3>{{ $t }}</h3><p>{{ $d }}</p></div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+    @include('partials.rucisoft-alur')
 
     {{-- ===== Fitur ===== --}}
     <section class="l-section l-alt" id="fitur">
