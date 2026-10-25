@@ -23,6 +23,7 @@
             <a href="#data-contoh">Data demo</a>
             <a href="#panduan">Panduan</a>
             <a href="#tanya">Tanya jawab</a>
+            <a href="https://rucisoft.id">Rucisoft.id</a>
         </nav>
         <a href="{{ url('/admin/login') }}" class="l-btn l-btn-sm">Masuk</a>
     </div>
@@ -225,7 +226,7 @@
 
 <footer class="l-foot">
     <div class="l-wrap">
-        <p><b>Ruci BSC</b> · Rucisoft</p>
+        <p><b>Ruci BSC</b> · <a href="https://rucisoft.id" style="color:inherit;text-decoration:underline">Rucisoft</a> · <a href="https://rucisoft.id" style="color:inherit">rucisoft.id</a></p>
         <p class="l-foot-warn"><b>DATA DEMO:</b> seluruh data perusahaan contoh di situs ini disusun untuk pembelajaran dan secara garis besar mengacu pada laporan tahunan masing-masing perusahaan; selebihnya simulasi. Nama perusahaan dipakai sebagai studi kasus, bukan kerja sama atau dukungan.</p>
     </div>
 </footer>
