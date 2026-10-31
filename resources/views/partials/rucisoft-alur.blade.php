@@ -2,8 +2,14 @@
     Blok halaman awal yang seragam untuk semua produk Rucisoft:
     masalah → penyebab → solusi → cara memperoleh (jalur Rucisoft Academy sampai pendampingan).
     Isi khusus produk ada di partials/rucisoft-alur-isi.php; berkas ini sama persis di setiap aplikasi.
+    Opsional: ['bagian' => ['masalah', 'penyebab', 'solusi']] lalu ['bagian' => ['memperoleh']]
+    untuk memecah blok di halaman (mis. alur AIDA). Tanpa parameter, keempat bagian tampil berurutan.
 --}}
 @php
+    $semua = ['masalah', 'penyebab', 'solusi', 'memperoleh'];
+    $bagian = array_values(array_intersect($semua, $bagian ?? $semua));
+    $utuh = $bagian === $semua;
+    $no = fn (int $n) => $utuh ? '<b>'.$n.'</b> ' : '';
     $alur = require resource_path('views/partials/rucisoft-alur-isi.php');
     $situs = 'https://rucisoft.id';
     $produk = $situs.'/solusi/'.$alur['slug'];
@@ -19,6 +25,7 @@
         ['Terapkan', 'Proposal transparan, implementasi, pelatihan, pendampingan, dan perpanjangan.', 'Minta proposal', $langkah('proposal')],
     ];
 @endphp
+@once
 <style>
     .rsa { --rsa-a: {{ $alur['aksen'] }}; --rsa-a2: {{ $alur['aksen_2'] }}; --rsa-ink: #0f1f33; --rsa-tx: #3b4a5c; --rsa-mu: #6b7a8c; --rsa-ln: #e2e8f0; --rsa-bg: #ffffff; --rsa-soft: #f5f7fa;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--rsa-tx); background: var(--rsa-bg); line-height: 1.6; }
@@ -56,10 +63,12 @@
     .rsa-note a { color: var(--rsa-a); }
     @media (max-width: 640px) { .rsa-sec { padding: 44px 0; } }
 </style>
-<div class="rsa" id="alur-rucisoft">
-    <section class="rsa-sec">
+@endonce
+<div class="rsa"@if ($utuh) id="alur-rucisoft"@endif>
+    @if (in_array('masalah', $bagian))
+    <section class="rsa-sec" id="alur-masalah">
         <div class="rsa-wrap">
-            <p class="rsa-eye"><b>1</b> Masalah yang sering dihadapi</p>
+            <p class="rsa-eye">{!! $no(1) !!}Masalah yang sering dihadapi</p>
             <h2>{{ $alur['masalah_judul'] }}</h2>
             <p class="rsa-lead">{{ $alur['masalah_lead'] }}</p>
             <div class="rsa-grid">
@@ -69,10 +78,12 @@
             </div>
         </div>
     </section>
+    @endif
 
-    <section class="rsa-sec soft">
+    @if (in_array('penyebab', $bagian))
+    <section class="rsa-sec soft" id="alur-penyebab">
         <div class="rsa-wrap">
-            <p class="rsa-eye"><b>2</b> Mengapa masalah ini terjadi</p>
+            <p class="rsa-eye">{!! $no(2) !!}Mengapa masalah ini terjadi</p>
             <h2>{{ $alur['penyebab_judul'] }}</h2>
             <p class="rsa-lead">{{ $alur['penyebab_lead'] }}</p>
             <div class="rsa-grid">
@@ -82,10 +93,12 @@
             </div>
         </div>
     </section>
+    @endif
 
-    <section class="rsa-sec">
+    @if (in_array('solusi', $bagian))
+    <section class="rsa-sec" id="alur-solusi">
         <div class="rsa-wrap">
-            <p class="rsa-eye"><b>3</b> Solusi Rucisoft</p>
+            <p class="rsa-eye">{!! $no(3) !!}Solusi Rucisoft</p>
             <h2>{{ $alur['solusi_judul'] }}</h2>
             <p class="rsa-lead">{{ $alur['solusi_lead'] }}</p>
             <div class="rsa-grid">
@@ -95,10 +108,12 @@
             </div>
         </div>
     </section>
+    @endif
 
-    <section class="rsa-sec soft">
+    @if (in_array('memperoleh', $bagian))
+    <section class="rsa-sec soft" id="alur-memperoleh">
         <div class="rsa-wrap">
-            <p class="rsa-eye"><b>4</b> Cara memperoleh {{ $alur['nama'] }}</p>
+            <p class="rsa-eye">{!! $no(4) !!}Cara memperoleh {{ $alur['nama'] }}</p>
             <h2>Mulai dari tahap mana pun yang sesuai dengan kesiapan Anda.</h2>
             <p class="rsa-lead">Rucisoft tidak meminta Anda langsung membeli. Pahami masalahnya lewat Rucisoft Academy, buktikan manfaatnya lewat pilot, lalu putuskan dengan proposal yang jelas. Sudah yakin? Langsung ke demo atau proposal.</p>
             <div class="rsa-flow">
@@ -117,4 +132,5 @@
             <p class="rsa-note">Program, jadwal, dan formulir dikelola di <a href="{{ $produk }}">rucisoft.id</a>. Satu organisasi cukup satu pendaftaran.</p>
         </div>
     </section>
+    @endif
 </div>

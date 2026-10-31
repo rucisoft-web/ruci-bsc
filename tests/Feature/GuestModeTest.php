@@ -85,7 +85,8 @@ class GuestModeTest extends TestCase
         \Illuminate\Support\Facades\Cache::flush();
 
         $this->get('/')->assertOk()
-            ->assertSee('Kenapa perlu Ruci BSC')
+            ->assertSee('Masalah yang sering dihadapi')
+            ->assertSee('Cara memperoleh Ruci BSC')
             ->assertSee('Data demo tahun berjalan 2026')
             ->assertSee('Panduan Ruci BSC')
             ->assertSee('Bank Central Asia')

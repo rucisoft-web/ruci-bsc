@@ -18,11 +18,12 @@
     <div class="l-wrap l-top-in">
         <a href="{{ url('/') }}" class="l-brand"><picture><source srcset="{{ asset('images/rucisoft-logo-dark.svg') }}" media="(prefers-color-scheme: dark)"><img src="{{ asset('images/rucisoft-logo.svg') }}" alt="Rucisoft BSC Professional" class="l-logo"></picture></a>
         <nav class="l-nav" aria-label="Navigasi utama">
-            <a href="#kenapa">Kenapa perlu</a>
+            <a href="#alur-masalah">Kenapa perlu</a>
             <a href="#fitur">Fitur</a>
             <a href="#data-contoh">Data demo</a>
             <a href="#panduan">Panduan</a>
             <a href="#tanya">Tanya jawab</a>
+            <a href="#alur-memperoleh">Cara memperoleh</a>
             <a href="https://rucisoft.id">Rucisoft.id</a>
         </nav>
         <a href="{{ url('/admin/login') }}" class="l-btn l-btn-sm">Masuk</a>
@@ -50,8 +51,8 @@
         </div>
     </section>
 
-    {{-- ===== Kenapa perlu ===== --}}
-    @include('partials.rucisoft-alur')
+    {{-- ===== Masalah, penyebab, dan solusi ===== --}}
+    @include('partials.rucisoft-alur', ['bagian' => ['masalah', 'penyebab', 'solusi']])
 
     {{-- ===== Fitur ===== --}}
     <section class="l-section l-alt" id="fitur">
@@ -148,6 +149,25 @@
         </div>
     </section>
 
+    {{-- ===== Tanya jawab ===== --}}
+    <section class="l-section" id="tanya">
+        <div class="l-wrap l-narrow">
+            <h2>Tanya jawab</h2>
+            @foreach ([
+                ['Apakah data demo ini data resmi perusahaan?', 'Bukan. Data demo disusun untuk pembelajaran dan secara garis besar mengacu pada laporan tahunan perusahaan terkait. Target, rincian bulanan, dan data tahun berjalan adalah simulasi.'],
+                ['Apa yang bisa dilakukan sebagai Tamu?', 'Melihat semua menu dan laporan, berpindah perusahaan dan perioda. Tamu tidak bisa mengubah atau menghapus data.'],
+                ['Apakah bisa dipakai untuk BUMN dan grup usaha?', 'Bisa. Satu instalasi menampung banyak perusahaan dengan hak akses per perusahaan dan per peran, termasuk peran Dewan Komisaris.'],
+                ['Bagaimana memulai dengan data sendiri?', 'Admin membuat perusahaan dan perioda, lalu Tim Strategi mengisi atau mengimpor sasaran, KPI, dan target dari Excel. Ikuti Panduan Implementasi.'],
+                ['Di mana Ruci BSC dipasang?', 'Di server atau hosting milik Anda sendiri (misalnya cPanel), sehingga data tetap berada di bawah kendali perusahaan.'],
+            ] as [$q, $a])
+                <details class="l-faq"><summary>{{ $q }}</summary><p>{{ $a }}</p></details>
+            @endforeach
+        </div>
+    </section>
+
+    {{-- ===== Cara memperoleh ===== --}}
+    @include('partials.rucisoft-alur', ['bagian' => ['memperoleh']])
+
     {{-- ===== Workshop ===== --}}
     <section class="l-section">
         <div class="l-wrap">
@@ -167,23 +187,7 @@
         </div>
     </section>
 
-    {{-- ===== Tanya jawab ===== --}}
-    <section class="l-section l-alt" id="tanya">
-        <div class="l-wrap l-narrow">
-            <h2>Tanya jawab</h2>
-            @foreach ([
-                ['Apakah data demo ini data resmi perusahaan?', 'Bukan. Data demo disusun untuk pembelajaran dan secara garis besar mengacu pada laporan tahunan perusahaan terkait. Target, rincian bulanan, dan data tahun berjalan adalah simulasi.'],
-                ['Apa yang bisa dilakukan sebagai Tamu?', 'Melihat semua menu dan laporan, berpindah perusahaan dan perioda. Tamu tidak bisa mengubah atau menghapus data.'],
-                ['Apakah bisa dipakai untuk BUMN dan grup usaha?', 'Bisa. Satu instalasi menampung banyak perusahaan dengan hak akses per perusahaan dan per peran, termasuk peran Dewan Komisaris.'],
-                ['Bagaimana memulai dengan data sendiri?', 'Admin membuat perusahaan dan perioda, lalu Tim Strategi mengisi atau mengimpor sasaran, KPI, dan target dari Excel. Ikuti Panduan Implementasi.'],
-                ['Di mana Ruci BSC dipasang?', 'Di server atau hosting milik Anda sendiri (misalnya cPanel), sehingga data tetap berada di bawah kendali perusahaan.'],
-            ] as [$q, $a])
-                <details class="l-faq"><summary>{{ $q }}</summary><p>{{ $a }}</p></details>
-            @endforeach
-        </div>
-    </section>
-
-    <section class="l-section l-final">
+    <section class="l-section l-alt l-final">
         <div class="l-wrap l-narrow">
             <h2>Lihat sendiri dalam lima menit.</h2>
             <div class="l-actions l-center">
