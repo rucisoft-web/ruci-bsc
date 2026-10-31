@@ -400,3 +400,23 @@ html:not(.dark) .kenali-svg .kn-node { fill: #fff; }
 .ws-exercise b { color: var(--k-tinta); }
 .ws-links { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: auto; }
 .dark .arah-guest-pick button.arah-guest-btn, .dark .arah-guest-pick button.arah-guest-btn:hover { background: #2A62AD; border-color: #2A62AD; color: #fff; }
+/* Workshop dua hari bersama mitra */
+.ws-mitra { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); border-radius: .8rem; padding: 1.1rem; font-size: .85rem; align-self: center; display: flex; flex-direction: column; gap: .8rem; }
+.ws-mitra-head { display: flex; gap: .85rem; align-items: center; }
+.ws-mitra-logo { flex: none; width: 4.4rem; height: 4.4rem; border-radius: .7rem; background: #fff; display: grid; place-items: center; padding: .35rem; }
+.ws-mitra-logo img { max-width: 100%; max-height: 100%; display: block; }
+.ws-mitra-head small { display: block; color: #C9D6E8; font-size: .72rem; }
+.ws-mitra-head b { display: block; color: #fff; font-size: 1.15rem; letter-spacing: .04em; }
+.ws-mitra-head span { display: block; color: #E6EDF7; }
+.ws-mitra ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .45rem; }
+.ws-mitra li { display: flex; gap: .7rem; align-items: center; padding: .55rem .7rem; border-radius: .5rem; background: rgba(255,255,255,.06); }
+.ws-mitra li b { display: block; color: #fff; }
+.ws-mitra li small { color: #C9D6E8; font-size: .75rem; }
+.ws-mitra > small { color: #C9D6E8; font-size: .75rem; }
+.ws-day-chip { flex: none; display: inline-block; padding: .2rem .55rem; border-radius: 999px; background: #D32F2F; color: #fff; font-size: .72rem; font-weight: 700; letter-spacing: .02em; white-space: nowrap; }
+.ws-days { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1100px) { .ws-days { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ws-day-head { display: flex; gap: .7rem; align-items: center; padding: .6rem 0 .7rem; border-bottom: 2px solid var(--k-garis); }
+.ws-day-head b { display: block; color: var(--k-tinta); font-size: .98rem; }
+.ws-day-head small { color: var(--k-tinta-2); font-size: .78rem; }
+.ws-day-title { display: flex; align-items: center; gap: .6rem; margin: 1.2rem 0 .7rem; font-size: 1.02rem; color: var(--k-tinta); }

@@ -174,8 +174,8 @@
             <div class="l-cta">
                 <div>
                     <span class="l-eyebrow">Workshop</span>
-                    <h2>Kenali Ruci BSC dalam satu hari.</h2>
-                    <p>Workshop untuk Komisaris, Direksi, dan tim strategi: dari Peta Strategi sampai rapat tinjauan, memakai studi kasus perusahaan di atas.</p>
+                    <h2>Kenali Ruci BSC dalam dua hari.</h2>
+                    <p>Workshop bersama PSMPT UIN Sunan Kalijaga untuk pimpinan dan tim strategi: hari pertama menyusun Peta Strategi, hari kedua KPI, inisiatif, dan rapat tinjauan, memakai studi kasus perusahaan di atas.</p>
                 </div>
                 <div class="l-actions">
                     @if ($workshopUrl)

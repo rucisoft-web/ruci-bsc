@@ -2,10 +2,9 @@
 
 namespace App\Filament\Pages;
 
-use Carbon\CarbonImmutable;
 use Filament\Pages\Page;
 
-/** Rundown dan materi Workshop Ruci BSC sehari, setiap hari Minggu pertama awal bulan. */
+/** Rundown dan materi Workshop Ruci BSC dua hari, bekerja sama dengan PSMPT UIN Sunan Kalijaga. */
 class WorkshopRuciBsc extends Page
 {
     protected static ?string $title = 'Workshop Ruci BSC';
@@ -27,25 +26,9 @@ class WorkshopRuciBsc extends Page
         return auth()->check();
     }
 
-    /** Minggu pertama tiap bulan, mulai dari bulan berjalan bila tanggalnya belum lewat. */
-    public static function nextDates(int $count = 4, ?CarbonImmutable $today = null): array
-    {
-        $today ??= CarbonImmutable::now('Asia/Jakarta')->startOfDay();
-        $dates = [];
-        for ($month = $today->startOfMonth(); count($dates) < $count; $month = $month->addMonth()) {
-            $sunday = $month->dayOfWeek === 0 ? $month : $month->next(CarbonImmutable::SUNDAY);
-            if ($sunday->gte($today)) {
-                $dates[] = $sunday;
-            }
-        }
-
-        return $dates;
-    }
-
     protected function getViewData(): array
     {
         return [
-            'dates' => static::nextDates(),
             'workshopUrl' => config('dhastram.workshop_url'),
             'workshopContact' => config('dhastram.workshop_contact'),
         ];

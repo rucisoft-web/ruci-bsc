@@ -253,9 +253,9 @@
     {{-- ===== Workshop ===== --}}
     <section class="kenali-section kenali-workshop" id="workshop">
         <div>
-            <span class="kenali-eyebrow">Workshop sehari · setiap Minggu pertama awal bulan</span>
-            <h2>Kenali Ruci BSC dalam satu hari</h2>
-            <p>Kelas praktis 08.00–16.30 WIB untuk pemilik usaha, Komisaris, Direksi, dan tim perencanaan. Workshop berikutnya: <b style="color:#fff">{{ \App\Filament\Pages\WorkshopRuciBsc::nextDates(1)[0]->locale('id')->translatedFormat('l, j F Y') }}</b>.</p>
+            <span class="kenali-eyebrow">Workshop dua hari · bersama PSMPT UIN Sunan Kalijaga</span>
+            <h2>Kenali Ruci BSC dalam dua hari</h2>
+            <p>Kelas praktis 08.00–16.30 WIB untuk pimpinan, tim perencanaan, dan pengelola mutu. Hari pertama merumuskan strategi sampai Peta Strategi, hari kedua menurunkannya menjadi KPI, inisiatif, dan rapat tinjauan di Ruci BSC.</p>
             <div class="kenali-take">
                 <b>Yang Anda bawa pulang</b>
                 <ul>
